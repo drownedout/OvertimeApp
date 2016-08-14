@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   describe 'creation' do
   	before do
-  		@post = Post.create(date: Date.today, rationale: "Anything")
+      @user = User.create(email: "test@test.com", password: "password", password_confirmation: "password", first_name: "Sally", last_name: "Sample")
+      login_as(@user, :scope => :user)
+  		@post = Post.create(date: Date.today, rationale: "Anything", user_id: @user.id)
   	end
 
   	it 'can be created' do
