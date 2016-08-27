@@ -8,7 +8,7 @@ FactoryGirl.define do
 		last_name "Example"
 		password "1234567"
 		password_confirmation "1234567"
-		phone "555555555"
+		phone "5555555555"
 	end
 	factory :admin_user, class: "AdminUser" do
 		email { generate :email }
