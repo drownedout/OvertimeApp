@@ -32,7 +32,7 @@ describe 'navigate' do
 
 		it 'has a scope so only the creator can see own post' do
 			@user2 = User.create(first_name: "Micheale", last_name: "Two", email: "testing@test.com",
-				password: "password", password_confirmation: "password")
+				password: "password", password_confirmation: "password", phone: "5555555555")
 			@post3 = Post.create(date: Date.today, rationale: "This post shouldn't be here", user_id: @user2.id, overtime_request: 2.5)
 
 			visit posts_path
