@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users
 resources :posts
 resources :admin_users
+resources :audit_logs, except: [:new, :edit, :destroy]
 
     root to: "users#index"
   end
