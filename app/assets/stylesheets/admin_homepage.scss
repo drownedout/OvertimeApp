@@ -10,6 +10,9 @@
 		color: #fff;
 		margin: 15px 42px 15px 42px;
 		padding: 15px;
+		&:hover {
+			background-color: #172b63;
+		}
 		.pending_details {
 			font-weight: 900;
 		}
