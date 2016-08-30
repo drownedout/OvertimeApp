@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: [:show, :edit, :update, :destroy]
+	before_action :find_post, only: [:show, :edit, :update, :destroy, :approve]
 
 	def index
 		@posts = Post.posts_by(current_user).page(params[:page]).per(10)
@@ -40,6 +40,13 @@ class PostsController < ApplicationController
 	def destroy
 		@post.delete
 		redirect_to posts_path, notice: "Post was successfully deleted"
+	end
+
+	def approve
+		authorize @post
+		
+		@post.approved!
+		redirect_to root_path, notice: "The post has been approved!"
 	end
 
 	private
